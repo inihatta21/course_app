@@ -1,0 +1,107 @@
+@startuml
+
+entity "Users" as users {
+    * id_user : INT [PK] auto_increment()
+    --
+    first_name : VARCHAR
+    last_name : VARCHAR
+    email : VARCHAR
+    password : VARCHAR
+}
+
+entity "Mentor" as mentor {
+    * id_mentor : INT [PK] auto_increment()
+    --
+    first_name : VARCHAR
+    last_name : VARCHAR
+    email : VARCHAR
+    password : VARCHAR
+    experience : TEXT
+}
+
+entity "Course" as course {
+    * id_course : INT [PK] auto_increment()
+    --
+    * id_mentor : INT [FK]
+    --
+    * id_kategori : INT [FK]
+    --
+    judul_course : VARCHAR
+    description : TEXT
+    image : TEXT
+    harga : INT
+    create_at : DATETIME
+}
+
+entity "Materi" as materi {
+    * id_materi : INT [PK] auto_increment()
+    --
+    * id_course : INT [FK]
+    --
+    judul_materi : VARCHAR
+    urutan : INT
+    video : TEXT
+}
+
+entity "Refresh Token User" as refresh_token_user {
+    * id_refresh_token_user : INT [PK] auto_increment()
+    --
+    * id_user : INT [FK]
+    --
+    token_refresh : TEXT
+    ip_address : VARCHAR
+    expired_at : DATETIME
+    create_at : DATETIME
+}
+
+entity "Refresh Token mentor" as refresh_token_mentor {
+    * id_refresh_token_mentor : INT [PK] auto_increment()
+    --
+    * id_mentor : INT [FK]
+    --
+    token_refresh : TEXT
+    ip_address : VARCHAR
+    expired_at : DATETIME
+    create_at : DATETIME
+}
+
+entity "Transaksi" as transaksi {
+    * id_transaksi : INT [PK] auto_increment()
+    --
+    * id_user : INT [FK]
+    --
+    * id_course : INT [FK]
+    --
+    kode_transaksi : VARCHAR
+    total_bayar : INT
+    metode_pembayaran : VARCHAR
+    status_transaksi : VARCHAR
+    payment_url : TEXT
+    create_at : DATETIME
+}
+
+entity "Log Webhook" as log_webhook {
+    * id_log_webhook : INT [PK] auto_increment
+    --
+    * id_transaksi : INT [FK]
+    --
+    payload : TEXT
+    create_at : DATETIME
+}
+
+entity "Kategori" as kategori {
+    * id_kategori : INT [PK] auto_increment()
+    --
+    nama_kategori : VARCHAR
+    imagelight: TEXT
+    imagedark: TEXT
+}
+
+mentor ||--o{ course : "membuat"
+course ||--o{ materi : "memiliki"
+users ||--o{ transaksi : "memiliki"
+users ||--o{ refresh_token_user : "memiliki"
+mentor ||--o{ refresh_token_mentor : "memiliki"
+transaksi ||--o{ log_webhook : "memiliki"
+kategori ||--o{ course : "memiliki"
+course ||--o{ transaksi : "memiliki"
