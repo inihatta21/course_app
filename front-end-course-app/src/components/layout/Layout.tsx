@@ -5,12 +5,12 @@ import Navbar from "../navbar/Navbar";
 function Layout() {
 
     return (
-        <section>
+        <section className="flex flex-col min-h-screen">
             <section>
-                <Navbar />
+                <Navbar isLogin={false} />
             </section>
 
-            <section>
+            <section className="flex-1">
                 <Outlet />
             </section>
 

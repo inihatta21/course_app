@@ -5,9 +5,10 @@ type InputType = {
     placeholder: string,
     type: string,
     icon: string,
+    value?: string
 }
 
-function InputText({name, placeholder, type, icon}: InputType) {
+function InputText({name, placeholder, type, icon, value}: InputType) {
     return (
         <>
         <section className={cn(
@@ -29,7 +30,7 @@ function InputText({name, placeholder, type, icon}: InputType) {
 
             // padding & height, width
             "h-[48px] w-[362px] ps-[52px] "
-        )} name={name} id={name} placeholder={placeholder} type={type} />
+        )} name={name} id={name} placeholder={placeholder} type={type} value={value} />
         </section>
         </>
     )

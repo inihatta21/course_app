@@ -10,6 +10,8 @@ import ValidateKode from './pages/ValidateKode'
 import ListCourse from './pages/ListCourse'
 import DetailCourse from './pages/DetailCourse'
 import MateriCourse from './pages/MateriCourse'
+import UserCourse from './pages/UserCourse'
+import UserProfile from './pages/UserProfile'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -20,6 +22,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/course' element={<ListCourse />} />
           <Route path='/course/:id' element={<DetailCourse />} />
           <Route path='/course/:course_id/:materi_id' element={<MateriCourse />} />
+          <Route path='/user/:id_user/course' element={<UserCourse />} />
+          <Route path='/user/:id_user/profile' element={<UserProfile />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

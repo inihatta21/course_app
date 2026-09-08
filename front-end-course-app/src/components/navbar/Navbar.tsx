@@ -40,8 +40,10 @@ function Navbar({ isLogin }: { isLogin: boolean }) {
                 </section>
             </nav>
             {isLogin ?
-                <MobileMenuLogin user="alex doe" profile={Profile} />
-                : <SideMenu isClose={closeMenu} isOpen={overlayMenu} />}
+                <MobileMenuLogin isOpen={overlayMenu}
+                    user="alex doe" profile={Profile} isClose={closeMenu} />
+                : <SideMenu isClose={closeMenu}
+                    isOpen={overlayMenu} />}
         </>
     )
 }
