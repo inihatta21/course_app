@@ -70,6 +70,7 @@ function DetailCourse() {
         <section className={cn(
             // padding
             "p-[25px]",
+            "md:p-[75px]",
 
             // display
             "flex flex-col gap-[15px] "

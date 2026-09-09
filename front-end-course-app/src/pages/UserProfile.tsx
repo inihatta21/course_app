@@ -8,9 +8,11 @@ function UserProfile() {
         <section className={cn(
             // padding
             "p-[25px]",
-            
+            "md:px-[75px]",
+
             // display
-            "flex flex-col gap-[25px]"
+            "flex flex-col gap-[25px]",
+            "md:gap-[30px]"
         )}>
             <Title title="Profile" />
             <UserProfileBio profile={Profile} name="Alex Doe"

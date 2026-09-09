@@ -9,12 +9,18 @@ function RegisterForm() {
     return (
         <form className={cn(
             // display
-            "flex flex-col gap-[12px]"
+            "flex flex-col gap-[12px] items-center"
         )}>
-            <InputText name="email" placeholder="First Name" type="text" icon={UserIcon} />
-            <InputText name="email" placeholder="Last Name" type="text" icon={UserIcon} />
-            <InputText name="email" placeholder="Email" type="email" icon={EmailIcon} />
-            <InputText name="password" placeholder="Password" type="password" icon={PasswordIcon} />
+            <section className={cn(
+                // display
+                "flex flex-col gap-[12px] items-center",
+                "md:grid md:grid-flow-col md:grid-rows-2 md:gap-2",
+            )}>
+                <InputText name="email" placeholder="First Name" type="text" icon={UserIcon} />
+                <InputText name="email" placeholder="Last Name" type="text" icon={UserIcon} />
+                <InputText name="email" placeholder="Email" type="email" icon={EmailIcon} />
+                <InputText name="password" placeholder="Password" type="password" icon={PasswordIcon} />
+            </section>
             <LongButton name="Register" />
         </form>
     )

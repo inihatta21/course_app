@@ -18,6 +18,7 @@ export function UserCourseProduct({ title, id_course }:
             <Link className={cn(
                 // font
                 "capitalize font-bold text-(--primary-color)",
+                "md:text-[24px]"
             )}
                 to={`/course/${id_course}`}>{title}</Link>
             <img src={NavIcon} className={cn(
@@ -32,7 +33,8 @@ export function UserCourseListCourse({ data }: { data: UserCourseListType[] }) {
     return (
         <section className={cn(
             // display
-            "flex flex-col gap-[30px]"
+            "flex flex-col gap-[30px]",
+            "md:gap-[40px]"
         )}>
             {data.length ?
                 data.map((data, index) => {

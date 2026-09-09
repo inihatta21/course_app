@@ -7,9 +7,11 @@ export function LoginImage({ image }: { image: string }) {
         <img src={image} className={cn(
             // width & height
             "w-full h-[334px] object-cover",
+            "md:h-[656px]",
 
             // rounded
-            "rounded-[50px]"
+            "rounded-b-[50px]",
+            "md:rounded-b-[100px]"
         )} />
     )
 }

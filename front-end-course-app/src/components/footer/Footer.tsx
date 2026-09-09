@@ -27,6 +27,7 @@ function Footer() {
         <section className={cn(
             // padding display
             "px-[25px] pt-[50px] pb-[21px] flex flex-col gap-[19px] ",
+            "md:px-[75px] md:gap-[35px] md:pb-[60px]",
 
             // background
             "bg-(--primary-color)"

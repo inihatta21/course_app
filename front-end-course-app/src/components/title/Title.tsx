@@ -4,7 +4,8 @@ function Title({ title }: { title: string }) {
     return (
         <h1 className={cn(
             // style font
-            "text-[20px] text-(--primary-color) capitalize font-bold "
+            "text-[20px] text-(--primary-color) capitalize font-bold ",
+            "md:text-[36px]"
         )}>{title}</h1>
     )
 }

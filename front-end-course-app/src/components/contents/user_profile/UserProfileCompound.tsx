@@ -19,6 +19,7 @@ export function UserProfileBio({ profile, name, email }
             <img src={profile} className={cn(
                 // width & height
                 "w-[133px] h-[133px]",
+                "md:w-[215px] md:h-[215px]",
 
                 // rounded
                 "rounded-full border-2 border-(--primary-color)"
@@ -26,11 +27,13 @@ export function UserProfileBio({ profile, name, email }
             <section>
                 <p className={cn(
                     // font
-                    "text-(--primary-color) font-bold capitalize"
+                    "text-(--primary-color) font-bold capitalize",
+                    "md:text-[24px]"
                 )}>{name}</p>
                 <p className={cn(
                     // font
-                    "text-(--muted-color)"
+                    "text-(--muted-color)",
+                    "md:text-[24px]"
                 )}>{email}</p>
             </section>
         </section>
@@ -104,35 +107,39 @@ export function UserProfileForm() {
     return (
         <form className={cn(
             // display
-            "flex flex-col gap-[25px]"
+            "flex flex-col gap-[25px]",
+            "md:grid md:grid-cols-2 md:gap-[40px]"
         )}>
             <UserProfileInput icon={UserIcon} label="First Name"
-            name="firstname" placeholder="First Name" type="text"
+                name="firstname" placeholder="First Name" type="text"
             />
             <UserProfileInput icon={UserIcon} label="Last Name"
-            name="lastname" placeholder="Last Name" type="text"
+                name="lastname" placeholder="Last Name" type="text"
             />
             <UserProfileInput icon={EmailIcon} label="Email"
-            name="email" placeholder="Email" type="email"
+                name="email" placeholder="Email" type="email"
             />
             <UserProfileInput icon={KeyIcon} label="Password"
-            name="password" placeholder="Password" type="password"
+                name="password" placeholder="Password" type="password"
             />
-             <button type="submit" className={cn(
-                // style width height
-                "py-[15px]",
+            <section>
+                <button type="submit" className={cn(
+                    // style width height
+                    "py-[15px] w-full",
+                    "md:col-span-2",
 
-                // style cursor & font
-                "cursor-pointer font-bold",
+                    // style cursor & font
+                    "cursor-pointer font-bold",
 
-                // style color
-                "bg-(--primary-color) text-(--white-color)",
-                " hover:bg-(--white-color) hover:text-(--primary-color) hover:border hover:border-(--primary-color)",
+                    // style color
+                    "bg-(--primary-color) text-(--white-color)",
+                    " hover:bg-(--white-color) hover:text-(--primary-color) hover:border hover:border-(--primary-color)",
 
-                // radius style
-                "rounded-[100px]"
+                    // radius style
+                    "rounded-[100px]"
 
-            )}>Save</button>
+                )}>Save</button>
+            </section>
         </form>
     )
 }

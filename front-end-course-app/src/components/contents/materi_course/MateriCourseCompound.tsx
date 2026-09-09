@@ -80,6 +80,7 @@ export function MateriCourseMenu({ data, isOpen, isClose }:
 
             // padding & display
             "p-[25px] flex flex-col gap-[25px]",
+            "md:p-[75px]",
 
             // transisi
             "transition-transform duration-300 ease-in-out",
@@ -88,20 +89,28 @@ export function MateriCourseMenu({ data, isOpen, isClose }:
             <section className="flex justify-end">
                 <img onClick={isClose} className="cursor-pointer" src={XIcon} />
             </section>
-            <h1 className={cn(
-                // font 
-                "font-bold text-(--white-color) "
-            )}>Detail Materi</h1>
             <section className={cn(
                 // display
-                "flex flex-col gap-[25px]"
+                "flex flex-col gap-[25px]",
+                "md:gap-[40px]"
             )}>
-                {data.map((data, index) => {
-                    return (
-                        <MateriCourseList key={index} id_course={data.id_course}
-                            id_materi={data.id_materi} title={data.materi} />
-                    )
-                })}
+                <h1 className={cn(
+                    // font
+                    "font-bold text-(--white-color)",
+                    "md:text-[36px]"
+                )}>Detail Materi</h1>
+                <section className={cn(
+                    // display
+                    "flex flex-col gap-[25px]",
+                    "md:gap-[40px]",
+                )}>
+                    {data.map((data, index) => {
+                        return (
+                            <MateriCourseList key={index} id_course={data.id_course}
+                                id_materi={data.id_materi} title={data.materi} />
+                        )
+                    })}
+                </section>
             </section>
         </section>
     )

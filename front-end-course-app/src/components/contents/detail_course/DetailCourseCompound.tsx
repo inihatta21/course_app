@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Title from '../../title/Title';
 import ButtonSquare from '../../buttons/ButtonSquare';
 import TitleMedium from '../../title/TitleMedium';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ListCourseProduct, type ListCourseProductType } from '../list_course/ListCourseCompound';
 
 export type DetailCourseListMateriType = {
@@ -245,13 +245,13 @@ export function DetailCourseMateri({ title, id_materi, id_course }:
             // display
             "flex gap-[15px] items-center",
 
-            // cursor
-            "cursor-pointer"
-        )} onClick={() => {
+        )}>
+            <section onClick={() => {
             navigation(`/course/${id_course}/${id_materi}`)
         }}>
-            <DetailCourseMiniPlayButton />
-            <p className='capitalize'>{title}</p>
+                <DetailCourseMiniPlayButton />
+            </section>
+            <Link to={`/course/${id_course}/${id_materi}`} className='capitalize'>{title}</Link>
         </section>
     )
 }

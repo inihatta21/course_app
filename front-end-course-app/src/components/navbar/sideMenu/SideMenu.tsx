@@ -13,12 +13,14 @@ function SideMenu({ isClose, isOpen }: { isClose: any, isOpen: boolean }) {
 
                 // padding & margin, shadow
                 "p-[25px]",
+                "md:p-[75px]",
 
                 // display style & position
                 "flex flex-col gap-[15px] fixed z-20 top-0 right-0",
+                "md:gap-[65px]",
 
                 // width & height style
-                "w-screen h-screen",
+                "w-full h-full",
 
                 // transisi
                 "transition-transform duration-300 ease-in-out",
@@ -33,7 +35,8 @@ function SideMenu({ isClose, isOpen }: { isClose: any, isOpen: boolean }) {
                 </section>
                 <section className={cn(
                     // display style
-                    "flex flex-col gap-[25px] justify-center items-center"
+                    "flex flex-col gap-[25px] justify-center items-center",
+                    "md:gap-[40px]"
                 )}>
                     <section>
                         <SideMenuLink />

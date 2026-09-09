@@ -24,9 +24,11 @@ function UserCourse() {
         <section className={cn(
             // display
             "flex flex-col gap-[25px]",
+            "md:gap-[40px]",
 
             // padding
-            "p-[25px] "
+            "p-[25px] ",
+            "md:px-[75px]"
         )}>
             <Title title="Course Saya" />
             <UserCourseListCourse data={data} />

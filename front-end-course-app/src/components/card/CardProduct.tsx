@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { cn } from '../../lib/util';
 import { CardProductImage, CardProductTitle } from './CardProductCompound';
 import CardProductDesc from './CardProductDesc';
@@ -10,23 +11,32 @@ type CardProductType = {
     categorie: string[],
     price: number,
     materi: number
+    id_course: number
 
 }
 
 function CardProduct({ titleProduct, imageCourse, mentor,
-    profile, categorie, price, materi }: CardProductType) {
+    profile, categorie, price, materi, id_course }: CardProductType) {
+
+    const navigation = useNavigate()
+
     return (
         <>
-            <section className={cn(
-                // display style
-                " flex gap-[8px] p-[10px]",
+            <section
+                onClick={() => navigation(`/course/${id_course}`)}
+                className={cn(
+                    // display style
+                    " flex gap-[8px] p-[10px]",
 
-                // border, shadow
-                "rounded-[8px] shadow",
+                    // border, shadow
+                    "rounded-[8px] shadow",
 
-                // width & height
-                "w-[362px] h-[100px] "
-            )}>
+                    // width & height
+                    "w-[362px] h-[100px]",
+
+                    // cursor
+                    "cursor-pointer"
+                )}>
                 <section>
                     <CardProductImage image={imageCourse} />
                 </section>
@@ -36,7 +46,7 @@ function CardProduct({ titleProduct, imageCourse, mentor,
                 )}>
                     <CardProductTitle title={titleProduct} />
                     <CardProductDesc profile={profile} mentor={mentor}
-                        categorie={categorie} materi={materi} price={price}/>
+                        categorie={categorie} materi={materi} price={price} />
                 </section>
             </section>
         </>

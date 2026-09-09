@@ -54,6 +54,16 @@ const product: ListCourseProductType[] = [{
     categorie: ["software", "ui/ux"],
     price: 99000,
     materi: 64
+},
+{
+    id_course: 2,
+    course: "Jago ui/ux design untuk real project",
+    imageCourse: ImgCourse,
+    mentor: "alex doe",
+    profile: Profile,
+    categorie: ["software", "ui/ux"],
+    price: 99000,
+    materi: 64
 }
 ]
 
@@ -63,14 +73,22 @@ function ListCourse() {
             // display
             "flex flex-col gap-[25px] py-[25px] "
         )}>
-            <section className='px-[25px]'>
+            <section className={cn(
+                // display
+                "px-[25px]",
+                "md:px-[75px]"
+            )}>
                 <Title title='semua course' />
             </section>
             <section>
                 <ListCourseCategorie categorie={categorie} />
             </section>
             <section
-                className='px-[25px]'>
+                className={cn(
+                    // display
+                    "px-[25px]",
+                    "md:px-[75px]"
+                )}>
                 <ListCourseProduct product={product} />
             </section>
         </section>

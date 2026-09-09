@@ -8,7 +8,7 @@ function LoginForm() {
     return (
         <form className={cn(
             // display
-            "flex flex-col gap-[12px]"
+            "flex flex-col gap-[12px]",
         )}>
         <InputText name="email" placeholder="Email" type="email" icon={EmailIcon} />
         <InputText name="password" placeholder="Password" type="password" icon={PasswordIcon} />

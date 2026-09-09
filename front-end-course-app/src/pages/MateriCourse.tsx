@@ -44,7 +44,8 @@ function MateriCourse() {
             "flex flex-col gap-[20px]",
 
             // padding
-            "p-[25px]"
+            "p-[25px]",
+            "md:px-[75px] md:py-[30px]"
         )}>
             <section>
                 <img onClick={() => setIsOpenMenu(true)} src={ListIcon} className={cn(

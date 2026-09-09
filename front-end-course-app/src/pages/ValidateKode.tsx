@@ -8,13 +8,15 @@ function ValidateKode() {
         <section className={cn(
             // display
             "flex flex-col justify-between gap-[15px]",
+            "md:gap-[65px]",
 
             // padding
             "pt-[80px]"
         )}>
             <section className={cn(
                 // display
-                "flex flex-col gap-[25px]")} >
+                "flex flex-col gap-[25px]",
+                )} >
                 <OtpTitle />
                 <OtpKodeInput />
                 <section className={cn(

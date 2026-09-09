@@ -25,7 +25,8 @@ export function ListCourseCategorie({ categorie }:
     return (
         <section className={cn(
             // display
-            "flex gap-[12px] overflow-x-scroll px-[25px]"
+            "flex gap-[12px] overflow-x-scroll px-[25px]",
+            "md:px-[75px]"
         )}>
             {categorie.map((data, index) => {
                 return (
@@ -41,21 +42,18 @@ export function ListCourseCategorie({ categorie }:
 export function ListCourseProduct({ product }:
     { product: ListCourseProductType[] }) {
 
-    const navigation = useNavigate()
-
     return (
         <section className={cn(
             // display
-            "flex flex-col gap-[15px]"
+            "flex flex-col gap-[15px]",
         )}>
             {product.map((data, index) => {
                 return (
-                    <section className="cursor-pointer"
-                        onClick={() => navigation(`/course/${data.id_course}`)}>
+                    <section>
                         <CardProduct key={index} titleProduct={data.course}
                             imageCourse={data.imageCourse} mentor={data.mentor}
                             profile={data.profile} categorie={data.categorie}
-                            price={data.price} materi={data.materi}
+                            price={data.price} materi={data.materi} id_course={data.id_course}
                         />
                     </section>
                 )

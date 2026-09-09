@@ -8,10 +8,14 @@ function LandingPage() {
     return (
         <section className={cn(
             // display
-            "flex flex-col gap-[19px] pb-[25px] "
+            "flex flex-col gap-[60px] pb-[60px] "
         )}>
         <Hero />
-        <section className="px-[25px] flex flex-col gap-y-[19px]">
+        <section className={cn(
+            // display
+            "px-[25px] flex flex-col gap-y-[60px]",
+            "md:px-[75px]"
+        )}>
         <LandingCategorie />
         <LandingLearnTime />
         <LandingListCourse />

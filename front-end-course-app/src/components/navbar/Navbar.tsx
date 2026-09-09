@@ -17,6 +17,7 @@ function Navbar({ isLogin }: { isLogin: boolean }) {
             <nav className={cn(
                 // padding
                 "p-[25px]",
+                "md:px-[75px] md:py-[33px]",
 
                 // shadow
                 "shadow-md",

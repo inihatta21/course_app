@@ -23,11 +23,13 @@ function MobileMenuLogin({ profile, user, isOpen, isClose }
     return (
         <section className={cn(
             // background
-            "bg-(--primary-color) h-screen w-screen",
+            "bg-(--primary-color) h-full w-full",
             // display
             "p-[25px] flex flex-col gap-[52px]",
+            "md:px-[75px] md:gap-[65px]",
+
             // position
-            "fixed right-0 top-0",
+            "fixed right-0 top-0 z-20",
             // transition
             // transisi
             "transition-transform duration-300 ease-in-out",

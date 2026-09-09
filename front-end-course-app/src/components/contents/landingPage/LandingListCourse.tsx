@@ -13,7 +13,8 @@ type CourseType = {
     profile: string,
     categorie: string[],
     price: number,
-    materi: number
+    materi: number,
+    id_course: number
 }
 
 function LandingListCourse() {
@@ -25,7 +26,8 @@ function LandingListCourse() {
         profile: Profile,
         categorie: ["ui/ux", "software"],
         price: 99000,
-        materi: 64
+        materi: 64,
+        id_course: 1
     },
     {
         titleProduct: "bahasa inggris pemula",
@@ -34,16 +36,28 @@ function LandingListCourse() {
         profile: Profile,
         categorie: ["bahasa"],
         price: 99000,
-        materi: 64
+        materi: 64,
+        id_course: 2
     },
-{
+    {
         titleProduct: "hukum untuk pemula",
         imageCourse: LawImg,
         mentor: "fatimah",
         profile: Profile,
         categorie: ["hukum"],
         price: 99000,
-        materi: 64
+        materi: 64,
+        id_course: 3
+    },
+    {
+        titleProduct: "hukum untuk pemula",
+        imageCourse: LawImg,
+        mentor: "fatimah",
+        profile: Profile,
+        categorie: ["hukum"],
+        price: 99000,
+        materi: 64,
+        id_course: 4
     }]
 
     return (
@@ -51,17 +65,24 @@ function LandingListCourse() {
             // display
             "flex flex-col gap-[19px] "
         )}>
-            <Title title="berbagai macam course yang meningkatkan skill & pengetahuan kamu." />
+            <section className={cn(
+                // text
+                "md:text-center"
+            )}>
+                <Title title="berbagai macam course yang meningkatkan skill & pengetahuan kamu." />
+            </section>
             <section className={cn(
                 // display
-                "flex flex-col gap-[12px] "
+                "flex flex-col gap-[15px] ",
+                "md:grid md:grid-flow-col md:grid-rows-2 md:gap-1"
             )}>
                 {course.map((data, index) => {
                     return (
                         <CardProduct key={index} titleProduct={data.titleProduct}
                             imageCourse={data.imageCourse} mentor={data.mentor}
                             profile={data.profile} categorie={data.categorie}
-                            price={data.price} materi={data.materi} />
+                            price={data.price} materi={data.materi} 
+                            id_course={data.id_course}/>
                     )
                 })}
             </section>

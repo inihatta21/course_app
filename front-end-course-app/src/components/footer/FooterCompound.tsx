@@ -123,10 +123,11 @@ export function FooterBottomCom({ nomer, email }: { nomer: string, email: string
         <section className={cn(
             // display
             "flex gap-[40px] py-[8px] justify-between",
+            "md:py-[35px] md:px-[52px]",
 
             // border
-            "border-y border-(--white-color)"
-        )}>
+            "border-y border-(--white-color)",
+            "md:border-y-2",        )}>
             <section className={cn(
                 // display
                 "flex items-center"
