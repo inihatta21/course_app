@@ -29,7 +29,7 @@ function MobileMenuLogin({ profile, user, isOpen, isClose }
             "md:px-[75px] md:gap-[65px]",
 
             // position
-            "fixed right-0 top-0 z-20",
+            "fixed right-0 top-0 z-30",
             // transition
             // transisi
             "transition-transform duration-300 ease-in-out",

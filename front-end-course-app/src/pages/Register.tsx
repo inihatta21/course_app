@@ -8,6 +8,7 @@ function Register() {
         <section className={cn(
             // display
             "flex flex-col items-center gap-[25px] pb-[100px]",
+            "lg:flex-row lg:justify-center lg:h-screen lg:pb-[0px]"
         )}>
             <section>
                 <LoginImage image={RegisterImg} />

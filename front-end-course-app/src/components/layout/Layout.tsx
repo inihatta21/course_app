@@ -10,7 +10,7 @@ function Layout() {
                 <Navbar isLogin={true} />
             </section>
 
-            <section className="flex-1">
+            <section className="flex-1 pt-[70px]">
                 <Outlet />
             </section>
 

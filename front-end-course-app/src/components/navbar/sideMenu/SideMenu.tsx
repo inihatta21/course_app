@@ -16,7 +16,7 @@ function SideMenu({ isClose, isOpen }: { isClose: any, isOpen: boolean }) {
                 "md:p-[75px]",
 
                 // display style & position
-                "flex flex-col gap-[15px] fixed z-20 top-0 right-0",
+                "flex flex-col gap-[15px] fixed z-30 top-0 right-0",
                 "md:gap-[65px]",
 
                 // width & height style

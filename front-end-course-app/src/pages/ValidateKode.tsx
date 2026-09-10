@@ -9,6 +9,7 @@ function ValidateKode() {
             // display
             "flex flex-col justify-between gap-[15px]",
             "md:gap-[65px]",
+            "lg:flex-row-reverse lg:justify-center lg:items-center lg:gap-[150px]",
 
             // padding
             "pt-[80px]"

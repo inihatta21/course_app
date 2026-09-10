@@ -15,6 +15,7 @@ function RegisterForm() {
                 // display
                 "flex flex-col gap-[12px] items-center",
                 "md:grid md:grid-flow-col md:grid-rows-2 md:gap-2",
+                "lg:flex"
             )}>
                 <InputText name="email" placeholder="First Name" type="text" icon={UserIcon} />
                 <InputText name="email" placeholder="Last Name" type="text" icon={UserIcon} />

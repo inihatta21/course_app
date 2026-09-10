@@ -8,10 +8,12 @@ export function LoginImage({ image }: { image: string }) {
             // width & height
             "w-full h-[334px] object-cover",
             "md:h-[656px]",
+            "lg:w-[440px] lg:h-[644px]",
 
             // rounded
             "rounded-b-[50px]",
-            "md:rounded-b-[100px]"
+            "md:rounded-b-[100px]",
+            "lg:rounded-[100px]"
         )} />
     )
 }

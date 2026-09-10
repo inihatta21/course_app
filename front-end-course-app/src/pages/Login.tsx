@@ -7,19 +7,18 @@ function Login() {
     return (
         <section className={cn(
             // text
-            "flex flex-col gap-[25px] items-center"
+            "flex flex-col gap-[25px] items-center",
+            "lg:flex-row lg:justify-center lg:gap-[150px] lg:h-screen",
         )} >
             <section className={cn(
-                // text
-                "flex flex-col gap-[15px]"
             )}>
                 <LoginImage image={LoginImg} />
-                <LoginTitle title="Login" subtitle="Selamat datang kembali" />
             </section>
             <section className={cn(
                 // display
                 "flex flex-col gap-[10px]"
             )}>
+                <LoginTitle title="Login" subtitle="Selamat datang kembali" />
                 <LoginForm />
                 <LoginLink title="Belum punya akun ?" link="register" navigate="/register" />
             </section>

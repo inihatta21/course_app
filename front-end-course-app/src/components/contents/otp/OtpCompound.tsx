@@ -53,6 +53,13 @@ export function OtpKodeInput() {
 
 export function OtpImage({ image }: {image: string}) {
     return (
-        <img src={image} className="h-screen w-full rounded-t-[50px] object-cover" />
+        <img src={image} className={cn(
+            // width & height
+            "h-screen w-full rounded-t-[50px] object-cover",
+            "lg:w-[440px] lg:h-[644px]",
+
+            // rounded,
+            "lg:rounded-[100px]"
+        )} />
     )
 }

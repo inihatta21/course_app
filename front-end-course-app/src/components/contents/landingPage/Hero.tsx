@@ -9,6 +9,7 @@ function Hero() {
             // position
             "relative w-full py-[14px]",
             "md:py-[111px]",
+            "lg:h-screen lg:py-[0px] lg:flex lg:justify-center lg:items-center",
         )} style={{ backgroundImage: `url(${Background})`, backgroundPosition: "center", backgroundSize: "cover" }}>
             <section className={cn(
                 // background dark transparent

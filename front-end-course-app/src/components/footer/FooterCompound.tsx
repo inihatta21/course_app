@@ -112,7 +112,8 @@ export function FooterLogo() {
             )}>Pintar</h1>
             <p className={cn(
                 // font
-                "text-[7px]"
+                "text-[7px]",
+                "md:text-[15px]"
             )}>Privacy Policy | Terms & Condition</p>
         </section>
     )
@@ -124,6 +125,7 @@ export function FooterBottomCom({ nomer, email }: { nomer: string, email: string
             // display
             "flex gap-[40px] py-[8px] justify-between",
             "md:py-[35px] md:px-[52px]",
+            "lg:px-[155px]",
 
             // border
             "border-y border-(--white-color)",

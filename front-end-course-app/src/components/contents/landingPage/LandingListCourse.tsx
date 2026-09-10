@@ -63,18 +63,20 @@ function LandingListCourse() {
     return (
         <section className={cn(
             // display
-            "flex flex-col gap-[19px] "
+            "flex flex-col gap-[19px] items-center"
         )}>
             <section className={cn(
                 // text
-                "md:text-center"
+                "md:text-center",
+                "lg:w-[767px]"
             )}>
                 <Title title="berbagai macam course yang meningkatkan skill & pengetahuan kamu." />
             </section>
             <section className={cn(
                 // display
                 "flex flex-col gap-[15px] ",
-                "md:grid md:grid-flow-col md:grid-rows-2 md:gap-1"
+                "md:grid md:grid-flow-col md:grid-rows-2 md:gap-1",
+                "lg:w-[767px]"
             )}>
                 {course.map((data, index) => {
                     return (

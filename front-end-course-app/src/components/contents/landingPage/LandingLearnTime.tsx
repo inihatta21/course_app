@@ -7,11 +7,13 @@ function LandingLearnTime() {
         <section className={cn(
             // display
             "flex flex-col gap-[19px]",
-            "md:flex-row-reverse md:items-center md:justify-center md:gap-[50px]"
+            "md:flex-row-reverse md:items-center md:justify-center md:gap-[50px]",
+            "lg:gap-[150px]"
         )}>
             <section className={cn(
                 // display
-                "flex flex-col gap-[19px]"
+                "flex flex-col gap-[19px]",
+                "lg:w-[550px]"
             )}>
                 <Title title="belajar Flexibel Dimana saja dan kapan saja." />
                 <p>Nikmati kemudahan belajar lewat laptop atau ponsel
@@ -20,7 +22,8 @@ function LandingLearnTime() {
             </section>
                     <img src={CombineImg} className={cn(
                         // width & height
-                        "md:w-[306px] md:h-[306px]"
+                        "md:w-[306px] md:h-[306px]",
+                        "lg:w-[420px] lg:h-[420px]"
                     )} />
         </section>
     )
