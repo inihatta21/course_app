@@ -4,7 +4,7 @@ import { useState } from "react";
 import SideMenu from './sideMenu/SideMenu';
 import MobileMenuLogin from "../menu/MobileMenuLogin";
 import Profile from "../../assets/profile.jpg"
-import { NavbarButton, NavbarListMenu } from "./NavbarCompound";
+import { NavbarButton, NavbarListMenu, NavbarProfileUser } from "./NavbarCompound";
 
 function Navbar({ isLogin }: { isLogin: boolean }) {
     const [overlayMenu, setOverlayMenu] = useState<boolean>(false)
@@ -46,7 +46,9 @@ function Navbar({ isLogin }: { isLogin: boolean }) {
                         "lg:flex lg:gap-[50px]"
                     )}>
                         <NavbarListMenu />
-                        <NavbarButton />
+                        {isLogin ? 
+                        <NavbarProfileUser profile={Profile} lastName="Doe" firstName="Alex" />
+                        : <NavbarButton />}
                     </section>
                 </section>
             </nav>

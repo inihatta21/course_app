@@ -26,7 +26,8 @@ export function ListCourseCategorie({ categorie }:
         <section className={cn(
             // display
             "flex gap-[12px] overflow-x-scroll px-[25px]",
-            "md:px-[75px]"
+            "md:px-[75px]",
+            "lg:overflow-x-auto"
         )}>
             {categorie.map((data, index) => {
                 return (
@@ -46,6 +47,7 @@ export function ListCourseProduct({ product }:
         <section className={cn(
             // display
             "flex flex-col gap-[15px]",
+            "lg:grid grid-cols-2 max-w-[739px]"
         )}>
             {product.map((data, index) => {
                 return (

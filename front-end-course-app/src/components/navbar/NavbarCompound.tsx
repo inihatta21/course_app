@@ -26,3 +26,22 @@ export function NavbarButton() {
         </section>
     )
 }
+
+export function NavbarProfileUser({ profile, firstName, lastName }:
+    { profile: string, firstName: string, lastName: string }) {
+        return (
+            <section className={cn(
+                // display 
+                "flex gap-[15px] items-center"
+            )}>
+                <img src={profile} className={cn(
+                    // width & height
+                    "h-[50px] w-[50px]",
+
+                    // rounded
+                    "rounded-full"
+                )} />
+                <p className="capitalize font-bold">{firstName} {lastName}</p>
+            </section>
+        )
+    }

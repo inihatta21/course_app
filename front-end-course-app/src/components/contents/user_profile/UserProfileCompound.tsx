@@ -108,7 +108,8 @@ export function UserProfileForm() {
         <form className={cn(
             // display
             "flex flex-col gap-[25px]",
-            "md:grid md:grid-cols-2 md:gap-[40px]"
+            "md:grid md:grid-cols-2 md:gap-[40px]",
+            "lg:max-w-[750px]"
         )}>
             <UserProfileInput icon={UserIcon} label="First Name"
                 name="firstname" placeholder="First Name" type="text"

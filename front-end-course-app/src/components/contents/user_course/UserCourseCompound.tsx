@@ -34,7 +34,8 @@ export function UserCourseListCourse({ data }: { data: UserCourseListType[] }) {
         <section className={cn(
             // display
             "flex flex-col gap-[30px]",
-            "md:gap-[40px]"
+            "md:gap-[40px]",
+            "lg:max-w-[364px]"
         )}>
             {data.length ?
                 data.map((data, index) => {

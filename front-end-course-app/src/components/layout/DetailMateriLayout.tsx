@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 
-function Layout() {
+function DetailMateriLayout() {
 
     return (
         <section className="flex flex-col min-h-screen">
@@ -13,12 +13,8 @@ function Layout() {
             <section className="flex-1 pt-[110px]">
                 <Outlet />
             </section>
-
-            <section>
-                <Footer />
-            </section>
         </section>
     )
 }
 
-export default Layout;
+export default DetailMateriLayout;

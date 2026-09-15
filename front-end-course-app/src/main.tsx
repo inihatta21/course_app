@@ -12,6 +12,7 @@ import DetailCourse from './pages/DetailCourse'
 import MateriCourse from './pages/MateriCourse'
 import UserCourse from './pages/UserCourse'
 import UserProfile from './pages/UserProfile'
+import DetailMateriLayout from './components/layout/DetailMateriLayout'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,9 +22,11 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<LandingPage />} />
           <Route path='/course' element={<ListCourse />} />
           <Route path='/course/:id' element={<DetailCourse />} />
-          <Route path='/course/:course_id/:materi_id' element={<MateriCourse />} />
           <Route path='/user/:id_user/course' element={<UserCourse />} />
           <Route path='/user/:id_user/profile' element={<UserProfile />} />
+        </Route>
+        <Route path='/' element={<DetailMateriLayout />}>
+          <Route path='/course/:course_id/:materi_id' element={<MateriCourse />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

@@ -71,12 +71,13 @@ function DetailCourse() {
             // padding
             "p-[25px]",
             "md:p-[75px]",
+            "lg:pe-[600px]",
 
             // display
             "flex flex-col gap-[15px] "
         )}>
             <Title title="Jago UI/UX design untuk real project" />
-            <DetailCourseVideoPlayer video={video} />
+                <DetailCourseVideoPlayer video={video} />
             <DetailCoursePrice price={99000} />
             <DetailCourseProfileMentor name="albert"
                 experience="Profesional UI/UX" profile={Profile} />

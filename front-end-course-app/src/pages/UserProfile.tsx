@@ -12,7 +12,7 @@ function UserProfile() {
 
             // display
             "flex flex-col gap-[25px]",
-            "md:gap-[30px]"
+            "md:gap-[30px]",
         )}>
             <Title title="Profile" />
             <UserProfileBio profile={Profile} name="Alex Doe"

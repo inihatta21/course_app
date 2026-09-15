@@ -13,106 +13,80 @@ export type MateriCourseMenuType = {
     materi: string,
 }
 
-export function MateriCourseCheck({ isCheck, eventClick }:
-    { isCheck: boolean, eventClick: () => void }) {
+export function MateriCourseCheck({ isCheck, eventClick }: { isCheck: boolean, eventClick: () => void }) {
     return (
-        <section onClick={eventClick}>
-            {isCheck ?
-                <img src={CheckIcon} className={cn(
-                    // width & height, rounded
-                    "w-[23px] h-[23px] rounded-full cursor-pointer",
-                )} /> : <section className={cn(
-                    // width & height, rounded
-                    "w-[23px] h-[23px] rounded-full",
-
-                    // background
-                    "bg-(--white-color) cursor-pointer"
-                )}></section>}
+        <section onClick={eventClick} className="flex-shrink-0">
+            {isCheck ? (
+                <img src={CheckIcon} className="w-[23px] h-[23px] rounded-full cursor-pointer" alt="Checked" />
+            ) : (
+                <section className="w-[23px] h-[23px] rounded-full bg-(--white-color) cursor-pointer" />
+            )}
         </section>
     )
 }
 
-export function MateriCourseList({ id_course, id_materi, title }
-    : { id_course: number, id_materi: number, title: string }) {
-
+export function MateriCourseList({ id_course, id_materi, title }: { id_course: number, id_materi: number, title: string }) {
     const [isCheck, setIsCheck] = useState<boolean>(false)
     const navigation = useNavigate()
 
     function handleCheck() {
-        if (isCheck) {
-            setIsCheck(false)
-        } else {
-            setIsCheck(true)
-        }
+        setIsCheck(!isCheck)
     }
 
     return (
-        <section className={cn(
-            // display
-            "flex gap-[15px] items-center",
-        )}>
+        <section className="flex gap-[15px] items-center">
             <MateriCourseCheck eventClick={handleCheck} isCheck={isCheck} />
-            <section className={cn(
-                // cursor
-                "cursor-pointer"
-            )} onClick={() => {
-                navigation(`/course/${id_course}/${id_materi}`)
-            }}>
-                <p className='capitalize text-(--white-color)'>{title}</p>
+            <section
+                className="cursor-pointer"
+                onClick={() => navigation(`/course/${id_course}/${id_materi}`)}
+            >
+                <p className="capitalize text-(--white-color) text-sm font-medium line-clamp-1">{title}</p>
             </section>
         </section>
     )
 }
 
-export function MateriCourseMenu({ data, isOpen, isClose }:
-    {
-        data: MateriCourseMenuType[], isOpen: boolean,
-        isClose: () => void
-    }
-) {
+export function MateriCourseMenu({ data, isOpen, isClose }: {
+    data: MateriCourseMenuType[],
+    isOpen: boolean,
+    isClose?: () => void
+}) {
     return (
-        <section className={cn(
-            // background
-            "bg-(--primary-color)",
+        <aside className={cn(
+            // Base Background & Spacing
+            "bg-(--primary-color) flex flex-col gap-[25px]",
 
-            // position
-            "w-full h-full fixed z-20 top-0 right-0",
-
-            // padding & display
-            "p-[25px] flex flex-col gap-[25px]",
-            "md:p-[75px]",
-
-            // transisi
+            // Mobile & Tablet: Tetap Fixed Slide-over Drawer
+            "fixed top-0 right-0 h-full w-full z-30 p-[25px] md:p-[50px]",
             "transition-transform duration-300 ease-in-out",
             isOpen ? "translate-x-0" : "translate-x-full",
+
+            // Desktop (lg): Posisi normal (Static/Relative) di sebelah kiri konten, mengikuti tinggi konten
+            "lg:static lg:translate-x-0 lg:z-auto",
+            "lg:w-[300px] lg:min-w-[300px] lg:p-[40px] lg:h-screen lg:min-h-full"
         )}>
-            <section className="flex justify-end">
-                <img onClick={isClose} className="cursor-pointer" src={XIcon} />
+            {/* Mobile Close Button */}
+            <section className="flex justify-end lg:hidden">
+                <img onClick={isClose} className="cursor-pointer" src={XIcon} alt="Close Menu" />
             </section>
-            <section className={cn(
-                // display
-                "flex flex-col gap-[25px]",
-                "md:gap-[40px]"
-            )}>
-                <h1 className={cn(
-                    // font
-                    "font-bold text-(--white-color)",
-                    "md:text-[36px]"
-                )}>Detail Materi</h1>
-                <section className={cn(
-                    // display
-                    "flex flex-col gap-[25px]",
-                    "md:gap-[40px]",
-                )}>
-                    {data.map((data, index) => {
-                        return (
-                            <MateriCourseList key={index} id_course={data.id_course}
-                                id_materi={data.id_materi} title={data.materi} />
-                        )
-                    })}
+
+            <section className="flex flex-col gap-[25px] md:gap-[30px]">
+                <h1 className="font-bold text-(--white-color) text-[22px] md:text-[28px]">
+                    Detail Materi
+                </h1>
+
+                <section className="flex flex-col gap-[20px] md:gap-[25px]">
+                    {data.map((item, index) => (
+                        <MateriCourseList
+                            key={item.id_materi || index}
+                            id_course={item.id_course}
+                            id_materi={item.id_materi}
+                            title={item.materi}
+                        />
+                    ))}
                 </section>
             </section>
-        </section>
+        </aside>
     )
 }
 
@@ -120,17 +94,11 @@ export function MateriCourseVideo({ video, prev, next }: {
     video: string, prev: string, next: string
 }) {
     return (
-        <section className={cn(
-            // display
-            "flex flex-col gap-[10px]"
-        )}>
+        <section className="flex flex-col gap-[20px]">
             <DetailCourseVideoPlayer video={video} />
-            <section className={cn(
-                // display
-                "flex justify-between"
-            )}>
+            <section className="flex justify-between items-center">
                 <ButtonSquare name="Tandai Selesai" />
-                <section className="flex gap-[7px]">
+                <section className="flex gap-[10px]">
                     <ButtonNavigate name="Prev" navigate={prev} />
                     <ButtonNavigate name="Next" navigate={next} />
                 </section>
