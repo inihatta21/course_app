@@ -97,6 +97,20 @@ entity "Kategori" as kategori {
     imagedark: TEXT
 }
 
+entity "User Progres" as user_progres {
+    * id_progres : INT [PK] auto_increment()
+    --
+    * id_user : INT [FK]
+    --
+    *id_materi : INT [FK]
+    --
+    status: VARCHAR
+    complete_at: DATETIME
+}
+
+
+users ||--o{ user_progres : memiliki
+materi ||--o{ user_progres : memiliki
 mentor ||--o{ course : "membuat"
 course ||--o{ materi : "memiliki"
 users ||--o{ transaksi : "memiliki"
