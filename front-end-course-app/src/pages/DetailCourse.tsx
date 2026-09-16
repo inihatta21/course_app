@@ -71,7 +71,7 @@ function DetailCourse() {
             // padding
             "p-[25px]",
             "md:p-[75px]",
-            "lg:pe-[600px]",
+            "lg:pe-[470px] 2xl:pe-[600px]",
 
             // display
             "flex flex-col gap-[15px] "

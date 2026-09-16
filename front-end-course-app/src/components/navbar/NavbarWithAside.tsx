@@ -1,12 +1,15 @@
 import { cn } from "../../lib/util";
 import Menu from "../../assets/icons/menu.svg"
 import { useState } from "react";
-import SideMenu from './sideMenu/SideMenu';
 import MobileMenuLogin from "../menu/MobileMenuLogin";
 import Profile from "../../assets/profile.jpg"
-import { NavbarButton, NavbarListMenu, NavbarProfileUser } from "./NavbarCompound";
+import { MateriCourseMenu, type MateriCourseMenuType } from "../contents/materi_course/MateriCourseCompound";
+import { NavbarListMenu, NavbarProfileUser } from "./NavbarCompound";
 
-function NavbarWithAside({ isLogin }: { isLogin: boolean }) {
+function NavbarWithAside({ data, isOpen, isClose }
+    : { data: MateriCourseMenuType[], isOpen: boolean,
+        isClose: () => void
+     }) {
     const [overlayMenu, setOverlayMenu] = useState<boolean>(false)
 
     function closeMenu() {
@@ -17,8 +20,10 @@ function NavbarWithAside({ isLogin }: { isLogin: boolean }) {
         <>
             <section className={cn(
                 // display
-                "fixed z-20"
+                "fixed z-20 w-screen"
             )}>
+
+                {/* navbar */}
                 <nav className={cn(
                     // padding
                     "p-[25px]",
@@ -54,6 +59,17 @@ function NavbarWithAside({ isLogin }: { isLogin: boolean }) {
                         </section>
                     </section>
                 </nav>
+
+                {/* navbar end */}
+
+                {/* sidebar */}
+                <section className={cn(
+                    // display
+                    "hidden lg:block"
+                )}>
+                        <MateriCourseMenu data={data} isOpen={isOpen} isClose={isClose}/>
+                </section>
+                {/* sidebar end */}
             </section>
             <MobileMenuLogin isOpen={overlayMenu}
                 user="alex doe" profile={Profile} isClose={closeMenu} />

@@ -20,7 +20,7 @@ function Login() {
             )}>
                 <LoginTitle title="Login" subtitle="Selamat datang kembali" />
                 <LoginForm />
-                <LoginLink title="Belum punya akun ?" link="register" navigate="/register" />
+                <LoginLink title="Belum punya akun ? " link="register" navigate="/register" />
             </section>
         </section>
     )

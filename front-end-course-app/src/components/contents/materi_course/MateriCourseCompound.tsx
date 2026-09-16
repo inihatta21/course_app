@@ -51,6 +51,17 @@ export function MateriCourseMenu({ data, isOpen, isClose }: {
     isOpen: boolean,
     isClose?: () => void
 }) {
+
+    function pressMateriTitle(title: string): string {
+
+        const array: string[] = title.split(" ")
+        const isTruncated: boolean = array.length > 3
+        const newTitle: string = isTruncated ?
+            array.slice(0, 3).join(" ") + "..." : title
+
+        return newTitle
+    }
+
     return (
         <aside className={cn(
             // Base Background & Spacing
@@ -60,6 +71,8 @@ export function MateriCourseMenu({ data, isOpen, isClose }: {
             "fixed top-0 right-0 h-full w-full z-30 p-[25px] md:p-[50px]",
             "transition-transform duration-300 ease-in-out",
             isOpen ? "translate-x-0" : "translate-x-full",
+
+            "overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
 
             // Desktop (lg): Posisi normal (Static/Relative) di sebelah kiri konten, mengikuti tinggi konten
             "lg:static lg:translate-x-0 lg:z-auto",
@@ -81,7 +94,7 @@ export function MateriCourseMenu({ data, isOpen, isClose }: {
                             key={item.id_materi || index}
                             id_course={item.id_course}
                             id_materi={item.id_materi}
-                            title={item.materi}
+                            title={pressMateriTitle(item.materi)}
                         />
                     ))}
                 </section>
@@ -96,7 +109,11 @@ export function MateriCourseVideo({ video, prev, next }: {
     return (
         <section className="flex flex-col gap-[20px]">
             <DetailCourseVideoPlayer video={video} />
-            <section className="flex justify-between items-center">
+            <section className={cn(
+                // display
+                "flex flex-col-reverse gap-[25px]",
+                "md:flex-row md:justify-between md:items-center"
+            )}>
                 <ButtonSquare name="Tandai Selesai" />
                 <section className="flex gap-[10px]">
                     <ButtonNavigate name="Prev" navigate={prev} />

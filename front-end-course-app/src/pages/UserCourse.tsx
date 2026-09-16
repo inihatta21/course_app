@@ -28,7 +28,8 @@ function UserCourse() {
 
             // padding
             "p-[25px] ",
-            "md:px-[75px]"
+            "md:px-[75px] md:py-[70px]",
+            "lg:py-[80px]"
         )}>
             <Title title="Course Saya" />
             <UserCourseListCourse data={data} />

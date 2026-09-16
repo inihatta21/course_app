@@ -36,14 +36,17 @@ function MateriCourse() {
         <section className={cn(
             // Di Mobile: Flex Column | Di Desktop: Flex Row (Menyejajarkan Sidebar & Content)
             "flex flex-col lg:flex-row w-full min-h-full",
-            "lg:pe-[400px] lg:max-h-screen"
+            "lg:px-[300px] lg:max-h-screen",
+            "2xl:px-[370px]"
         )}>
-            {/* Sidebar Menu Component */}
-            <MateriCourseMenu
-                data={data}
-                isOpen={isOpenMenu}
-                isClose={() => setIsOpenMenu(false)}
-            />
+            <section className="lg:hidden">
+                {/* Sidebar Menu Component */}
+                <MateriCourseMenu
+                    data={data}
+                    isOpen={isOpenMenu}
+                    isClose={() => setIsOpenMenu(false)}
+                />
+            </section>
 
             {/* Toggle Button Khusus Mobile/Tablet */}
             <section className="p-[25px] md:px-[50px] lg:hidden">

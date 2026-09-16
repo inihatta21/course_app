@@ -7,10 +7,10 @@ function Layout() {
     return (
         <section className="flex flex-col min-h-screen">
             <section>
-                <Navbar isLogin={true} />
+                <Navbar isLogin={false} />
             </section>
 
-            <section className="flex-1 pt-[110px]">
+            <section className="flex-1 pt-[75px] lg:pt-[110px]">
                 <Outlet />
             </section>
 

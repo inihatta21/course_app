@@ -26,6 +26,7 @@ export function ListCourseCategorie({ categorie }:
         <section className={cn(
             // display
             "flex gap-[12px] overflow-x-scroll px-[25px]",
+            "[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
             "md:px-[75px]",
             "lg:overflow-x-auto"
         )}>
