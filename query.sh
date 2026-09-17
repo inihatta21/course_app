@@ -147,3 +147,20 @@ create table refresh_token_mentor
     CONSTRAINT fk_mentor FOREIGN KEY (id_mentor) REFERENCES mentor (id_mentor)
 );
 
+# create type enum
+create type status_progress as enum ('end', 'not');
+
+# create table user_progress
+create table user_progress
+(
+    id_progress SERIAL NOT NULL,
+    id_user INT,
+    id_materi INT,
+    status status_progress DEFAULT 'not',
+    complete_at TIMESTAMPTZ,
+
+    PRIMARY KEY (id_progress),
+    CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES users (id_user),
+    CONSTRAINT fk_materi FOREIGN KEY (id_materi) REFERENCES materi (id_materi)
+);
+
