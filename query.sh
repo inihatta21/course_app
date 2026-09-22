@@ -33,6 +33,7 @@ create table users
     last_name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     password VARCHAR(100),
+    profile TEXT
 
     PRIMARY KEY (id_user)
 );
@@ -46,6 +47,7 @@ create table mentor
     email VARCHAR(100) UNIQUE,
     password VARCHAR(100),
     experience TEXT,
+    profile TEXT
 
     PRIMARY KEY (id_mentor)
 );
@@ -163,4 +165,18 @@ create table user_progress
     CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES users (id_user),
     CONSTRAINT fk_materi FOREIGN KEY (id_materi) REFERENCES materi (id_materi)
 );
+
+# create user_course
+create table user_course
+(
+    id_user_course SERIAL NOT NULL,
+    id_user INT,
+    id_course INT,
+    status status_progress DEFAULT 'not',
+    complete_at TIMESTAMPTZ,
+
+    PRIMARY KEY (id_user_course),
+    CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES users (id_user),
+    CONSTRAINT fk_course FOREIGN KEY (id_course) REFERENCES materi (id_course)
+)
 

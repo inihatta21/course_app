@@ -7,6 +7,7 @@ entity "Users" as users {
     last_name : VARCHAR
     email : VARCHAR
     password : VARCHAR
+    profile : TEXT
 }
 
 entity "Mentor" as mentor {
@@ -17,6 +18,7 @@ entity "Mentor" as mentor {
     email : VARCHAR
     password : VARCHAR
     experience : TEXT
+    profile: TEXT
 }
 
 entity "Course" as course {
@@ -108,7 +110,19 @@ entity "User Progres" as user_progres {
     complete_at: DATETIME
 }
 
+entity "User Course" as user_course {
+    * id_user_course : INT [PK] auto_increment()
+    --
+    * id_user : INT [FK]
+    --
+    * id_course : INT [FK]
+    --
+    status: VARCHAR
+    complete_at: DATETIME
+}
 
+users ||--o{ user_course : memiliki
+materi ||--o{ user_course : memiliki
 users ||--o{ user_progres : memiliki
 materi ||--o{ user_progres : memiliki
 mentor ||--o{ course : "membuat"
