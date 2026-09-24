@@ -17,14 +17,16 @@ function Navbar({ isLogin }: { isLogin: boolean }) {
         <>
             <nav className={cn(
                 // padding
-                "p-[25px]",
-                "md:px-[75px] md:py-[33px] fixed z-20 bg-(--white-color)",
+                "py-[15px] px-[25px]",
+                "lg:px-[90px] lg:py-[27px]",
+                "bg-(--white-color)",
 
                 // shadow
                 "shadow-md",
 
-                // width
-                "w-full"
+                // rounded
+                "rounded-full",
+
             )}>
                 <section className={cn(
                     // style display
@@ -38,7 +40,7 @@ function Navbar({ isLogin }: { isLogin: boolean }) {
                         //style font
                         "font-bold"
 
-                    )}>PINTAR</h1>
+                    )}>Pintar</h1>
                     <img onClick={() => setOverlayMenu(true)} src={Menu} className="cursor-pointer lg:hidden" />
                     <section className={cn(
                         // display

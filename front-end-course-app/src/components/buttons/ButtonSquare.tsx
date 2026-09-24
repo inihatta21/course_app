@@ -18,7 +18,8 @@ function ButtonSquare({ name, eventButton }: { name: string,
                         "font-(--inter-font) font-bold",
         
                         // radius style
-                        "rounded"
+                        "rounded-[10px]",
+                        "md:rounded-[20px]"
                     )} onClick={eventButton} >{name}</button>
     )
 }

@@ -1,43 +1,33 @@
-import Title from "../../title/Title";
-import ComputerImg from "../../../assets/categorie/computer.jpeg"
-import BahasaImg from "../../../assets/categorie/bahasa.jpeg"
-import LawImg from "../../../assets/categorie/law.jpeg"
-import DesainImg from "../../../assets/categorie/desain.jpeg"
-import CardCategorieProduct from "../../card/CardCategorieProduct";
 import { cn } from "../../../lib/util";
+import Title from "../../title/Title";
+import ImageLandingCat from "../../../assets/image-landing-categorie.png";
 
 function LandingCategorie() {
-    return (
-        <section className={cn(
-            // display
-            "flex flex-col items-center gap-[60px]"
-        )}>
-            <section className={cn(
-                // text
-                "md:text-center"
-            )}>
-                <Title title="kuasai keahlian baru, ciptakan peluang tanpa batas" />
-            </section>
-            <section className={cn(
-                // grid
-                "grid grid-cols-2 gap-[12px] gap-x-[12px]",
-                "md:flex md:gap-[15px]"
-            )}>
-                <CardCategorieProduct title="computer science"
-                    desc="Kuasai algoritma, struktur data, prinsip software."
-                    image={ComputerImg} />
-                <CardCategorieProduct title="hukum"
-                    desc="Pahami dasar-dasar hukum, analisis hak, dll."
-                    image={LawImg} />
-                <CardCategorieProduct title="seni & desain"
-                    desc="Eksplorasi ide kreatifmu, kuasai seni visual, dll."
-                    image={DesainImg} />
-                <CardCategorieProduct title="bahasa"
-                    desc="Kuasai berbagai bahasa dari belahan dunia"
-                    image={BahasaImg} />
-            </section>
+  const kategori = ["Teknologi", "Sains", "Health"];
+
+  return (
+    <section className={cn("md:flex md:items-center md:justify-between")}>
+      <section
+        className={cn("max-w-[258px] md:max-w-[290px] lg:max-w-[517px]")}
+      >
+        <Title title="Temukan Berbagai Course" />
+        <section>
+          {kategori.map((data, index) => {
+            return (
+              <p className={cn("border-b-[0.5px] py-[14px]")} key={index}>
+                {data}
+              </p>
+            );
+          })}
+          <p className={cn("pt-[14px] pb-[24px]")}>Dan Masih Banyak Lagi</p>
         </section>
-    )
+      </section>
+      <img
+        src={ImageLandingCat}
+        className={cn("w-[358px] h-[207px]", "lg:w-[515px] lg:h-[298px]")}
+      />
+    </section>
+  );
 }
 
 export default LandingCategorie;

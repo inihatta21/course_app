@@ -1,32 +1,49 @@
-import Title from "../../title/Title"
-import CombineImg from "../../../assets/combine image.png"
-import { cn } from "../../../lib/util"
+import { cn } from "../../../lib/util";
+import Title from "../../title/Title";
+import ImgDihalte from "../../../assets/dihalte.png";
+import ImgDirumah from "../../../assets/dirumah.png";
+import ImgDisekolah from "../../../assets/disekolah.png";
 
 function LandingLearnTime() {
-    return (
-        <section className={cn(
-            // display
-            "flex flex-col gap-[19px]",
-            "md:flex-row-reverse md:items-center md:justify-center md:gap-[50px]",
-            "lg:gap-[150px]"
-        )}>
-            <section className={cn(
-                // display
-                "flex flex-col gap-[19px]",
-                "lg:w-[550px]"
-            )}>
-                <Title title="belajar Flexibel Dimana saja dan kapan saja." />
-                <p>Nikmati kemudahan belajar lewat laptop atau ponsel
-                    tanpa terikat jadwal. Bebas atur ritme belajarmu sendiri.
-                </p>
-            </section>
-                    <img src={CombineImg} className={cn(
-                        // width & height
-                        "md:w-[306px] md:h-[306px]",
-                        "lg:w-[420px] lg:h-[420px]"
-                    )} />
-        </section>
-    )
+  const image = [ImgDirumah, ImgDihalte, ImgDisekolah];
+
+  return (
+    <section className={cn("flex flex-col gap-[24px]")}>
+      <section
+        className={cn(
+          "flex flex-col gap-[17px]",
+          "md:w-[425px]",
+          "lg:w-[658px]",
+        )}
+      >
+        <Title title="Mudah Diakses Dimana Saja Dan Kapan Saja" />
+        <p>
+          Buat kamu yang punya jadwal padat setiap hari, dan tidak punya waktu
+          luang.
+        </p>
+      </section>
+      <section
+        className={cn(
+          "flex flex-col gap-[22px] items-center",
+          "lg:flex-row lg:justify-center",
+        )}
+      >
+        {image.map((data, index) => {
+          return (
+            <img
+              className={cn(
+                "w-[333px] h-[333px]",
+                "shadow-md",
+                "rounded-[20px]",
+              )}
+              src={data}
+              key={index}
+            />
+          );
+        })}
+      </section>
+    </section>
+  );
 }
 
-export default LandingLearnTime
+export default LandingLearnTime;

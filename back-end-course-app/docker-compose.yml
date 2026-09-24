@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    container_name: django
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/src
+    environment:
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=db_course_app
+      - DB_USER=course_app
+      - DB_PASSWORD=course_app
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+    
+  db:
+    image: postgres:16.15-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=db_course_app
+      - POSTGRES_USER=course_app
+      - POSTGRES_PASSWORD=course_app
+    ports:
+      - "5434:5432"
+    volumes:
+      - db_postgres:/var/lib/postgresql/data
+
+volumes:
+  db_postgres:
+    

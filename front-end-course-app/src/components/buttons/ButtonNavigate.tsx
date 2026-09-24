@@ -24,7 +24,8 @@ function ButtonNavigate({ name, type, navigate }: { name: string, type?: string,
                 "font-(--inter-font) font-bold",
 
                 // radius style
-                "rounded-[3px]"
+                "rounded-[10px]",
+                "md:rounded-[20px]",
             )} onClick={() => navigation(navigate)}> {name} </button>
         )
     }
@@ -46,7 +47,8 @@ function ButtonNavigate({ name, type, navigate }: { name: string, type?: string,
                 "font-(--inter-font) font-bold",
 
                 // radius style
-                "rounded-[3px]"
+                "rounded-[10px]",
+                "md:rounded-[20px]",
             )} onClick={() => navigation(navigate)} > {name} </button>
         </>
     )
