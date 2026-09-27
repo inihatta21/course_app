@@ -1,11 +1,12 @@
 @startuml
 
 entity "Users" as users {
-    * id_user : INT [PK] auto_increment()
-    --
+    id_user : INT auto_increment()
     first_name : VARCHAR
     last_name : VARCHAR
-    email : VARCHAR
+    --
+    * email : VARCHAR UNIQUE [PK]
+    --
     password : VARCHAR
     profile : TEXT
 }
@@ -48,7 +49,7 @@ entity "Materi" as materi {
 entity "Refresh Token User" as refresh_token_user {
     * id_refresh_token_user : INT [PK] auto_increment()
     --
-    * id_user : INT [FK]
+    * email : VARCHAR [FK]
     --
     token_refresh : TEXT
     ip_address : VARCHAR
@@ -70,7 +71,7 @@ entity "Refresh Token mentor" as refresh_token_mentor {
 entity "Transaksi" as transaksi {
     * id_transaksi : INT [PK] auto_increment()
     --
-    * id_user : INT [FK]
+    * email : VARCHAR [FK]
     --
     * id_course : INT [FK]
     --
@@ -102,7 +103,7 @@ entity "Kategori" as kategori {
 entity "User Progres" as user_progres {
     * id_progres : INT [PK] auto_increment()
     --
-    * id_user : INT [FK]
+    * email : VARCHAR [FK]
     --
     *id_materi : INT [FK]
     --
@@ -113,7 +114,7 @@ entity "User Progres" as user_progres {
 entity "User Course" as user_course {
     * id_user_course : INT [PK] auto_increment()
     --
-    * id_user : INT [FK]
+    * email : VARCHAR [FK]
     --
     * id_course : INT [FK]
     --
@@ -121,6 +122,17 @@ entity "User Course" as user_course {
     complete_at: DATETIME
 }
 
+entity "User Validate" as user_validate {
+    * id_user_validate : INT [PK] auto_increment()
+    --
+    * email : VARCHAR [FK]
+    --
+    kode: VARCHAR
+    status: VARCHAR
+    expired_at: DATETIME
+}
+
+users ||--o{ user_validate : memiliki
 users ||--o{ user_course : memiliki
 materi ||--o{ user_course : memiliki
 users ||--o{ user_progres : memiliki

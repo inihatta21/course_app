@@ -1,56 +1,52 @@
-import { useNavigate } from 'react-router-dom';
-import { cn } from '../../lib/util';
-import { CardProductImage, CardProductTitle } from './CardProductCompound';
-import CardProductDesc from './CardProductDesc';
+import { useNavigate } from "react-router-dom";
+import { cn } from "../../lib/util";
+import {
+  CardCategorie,
+  CardProductDesc,
+  CardProductDescProfile,
+  CardProductImage,
+  CardProductTitle,
+} from "./CardProductCompound";
+import type { CardProductType } from "../type/type";
 
-type CardProductType = {
-    titleProduct: string,
-    imageCourse: string,
-    mentor: string,
-    profile: string,
-    categorie: string[],
-    price: number,
-    materi: number
-    id_course: number
 
-}
+function CardProduct({
+  titleProduct,
+  imageCourse,
+  mentor,
+  profile,
+  categorie,
+  price,
+  materi,
+  id_course,
+}: CardProductType) {
+  const navigation = useNavigate();
 
-function CardProduct({ titleProduct, imageCourse, mentor,
-    profile, categorie, price, materi, id_course }: CardProductType) {
+  return (
+    <section
+      className={cn(
+        "w-[200px] h-[240px]",
+        "shrink-0",
+        "p-[10px]",
+        "shadow-md",
+        "rounded-[15px]",
+        "flex flex-col gap-[6px]",
+        "cursor-pointer"
+      )}
 
-    const navigation = useNavigate()
-
-    return (
-        <>
-            <section
-                onClick={() => navigation(`/course/${id_course}`)}
-                className={cn(
-                    // display style
-                    " flex gap-[8px] p-[10px]",
-
-                    // border, shadow
-                    "rounded-[8px] shadow",
-
-                    // width & height
-                    "w-[362px] h-[100px]",
-
-                    // cursor
-                    "cursor-pointer"
-                )}>
-                <section>
-                    <CardProductImage image={imageCourse} />
-                </section>
-                <section className={cn(
-                    // grid
-                    "flex flex-col justify-between"
-                )}>
-                    <CardProductTitle title={titleProduct} />
-                    <CardProductDesc profile={profile} mentor={mentor}
-                        categorie={categorie} materi={materi} price={price} />
-                </section>
-            </section>
-        </>
-    )
+      onClick={() => navigation(`/course/${id_course}`)}
+    >
+      <CardProductImage image={imageCourse} />
+      <CardProductTitle title={titleProduct} />
+      <CardProductDescProfile mentor={mentor} profile={profile} />
+      <section className={cn("flex gap-[5px]")}>
+        {categorie.map((data, index) => {
+          return <CardCategorie name={data} key={index} />;
+        })}
+      </section>
+        <CardProductDesc materi={materi} price={price} />
+    </section>
+  );
 }
 
 export default CardProduct;

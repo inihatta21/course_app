@@ -35,7 +35,7 @@ create table users
     password VARCHAR(100),
     profile TEXT
 
-    PRIMARY KEY (id_user)
+    PRIMARY KEY (email)
 );
 
 # create table mentor
@@ -152,6 +152,9 @@ create table refresh_token_mentor
 # create type enum
 create type status_progress as enum ('end', 'not');
 
+create type status_validate as enum ('verifikasi', 'not');
+
+
 # create table user_progress
 create table user_progress
 (
@@ -178,5 +181,17 @@ create table user_course
     PRIMARY KEY (id_user_course),
     CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES users (id_user),
     CONSTRAINT fk_course FOREIGN KEY (id_course) REFERENCES materi (id_course)
+)
+
+# create user_validate
+create table user_validate
+(
+    id_user_validate SERIAL NOT NULL,
+    id_user INT, 
+    status status_progress DEFAULT 'not',
+    expired_at TIMESTAMPTZ,
+
+    PRIMARY KEY (id_user_validate),
+    CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES users (id_user),
 )
 

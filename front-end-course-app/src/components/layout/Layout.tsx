@@ -11,16 +11,18 @@ function Layout() {
                 "fixed z-20",
 
                 // padding
-                "px-[25px] py-[17px]",
+                "px-[25px] py-[17px] md:px-[45px] lg:px-[90px]",
 
                 // width
-                "w-full",
+                "w-screen",
 
             )}>
                 <Navbar isLogin={true} />
             </section>
 
-            <section className="flex-1 pt-[98px] md:pt-[159px] lg:pt-[184px]">
+            <section className={cn(
+                "flex-1 pt-[98px] md:pt-[110px] lg:pt-[184px] pb-[60px]"
+            )}>
                 <Outlet />
             </section>
 

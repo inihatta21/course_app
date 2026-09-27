@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     volumes:
       - .:/src
+    env_file:
+      - .env
     environment:
       - DB_ENGINE=django.db.backends.postgresql
       - DB_NAME=db_course_app
