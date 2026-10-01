@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  engineType = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum StatusValidate {
+  VERIFIKASI @map("verifikasi")
+  NOT_VERIFIKASI @map("not_verifikasi")
+}
+
+model Users {
+  first_name String @db.VarChar(50)
+  last_name String @db.VarChar(50)
+  email String @id @db.VarChar(100)
+  password String @db.VarChar(50)
+  profile String?
+
+  @@map("users")
+}
+
+model UsersValidate {
+  id_user_validate Int @id @default(autoincrement())
+  email String
+  kode String @db.VarChar(4)
+  status StatusValidate @default(NOT_VERIFIKASI)
+  expired_at DateTime
+
+  @@map("users_validate")
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "paths": {
+      "@prisma/client": ["./src/generated/prisma"]
+    }
+  },
+  "include": ["src/**/*"]
+}
