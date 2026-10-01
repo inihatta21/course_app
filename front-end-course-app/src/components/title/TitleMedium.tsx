@@ -4,7 +4,7 @@ function TitleMedium({ title }: { title: string }) {
     return (
         <h1 className={cn(
             // style font
-            "text-[20px] text-(--primary-color)",
+            "text-[20px] text-(--secondary-color)",
             "capitalize font-bold ",
         "md:text-[24px]")} >{title}</h1 >)
 }

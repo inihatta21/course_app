@@ -3,15 +3,14 @@ import {
   MateriCourseMenu,
   type MateriCourseMenuType,
 } from "../contents/materi_course/MateriCourseCompound";
+import { DashboardSidebar } from "./DashboardSidebar";
 import NavbarSide from "./NavbarSide";
 
-function NavbarWithAside({
-  data,
+function DashboardWithAside({
   isOpen,
   isClose,
   isLogin,
 }: {
-  data: MateriCourseMenuType[];
   isOpen: boolean;
   isLogin: boolean;
   isClose: () => void;
@@ -21,7 +20,7 @@ function NavbarWithAside({
     <section className={cn("fixed w-screen", "flex lg:gap-[80px]")}>
       {/* sidebar */}
       <aside>
-        <MateriCourseMenu data={data} isOpen={isOpen} isClose={isClose} />
+       <DashboardSidebar isOpen={isOpen} isClose={isClose} />
       </aside>
 
       {/* navbar */}
@@ -33,10 +32,10 @@ function NavbarWithAside({
           "lg:p-[25px]",
         )}
       >
-        <NavbarSide isLogin />
+        <NavbarSide isLogin={isLogin} />
       </section>
     </section>
   );
 }
 
-export default NavbarWithAside;
+export default DashboardWithAside;

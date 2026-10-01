@@ -5,6 +5,10 @@ import type {
   CourseCategorieType,
   ListCourseProductType,
 } from "../../type/type";
+import ChevronRightIcon from "../../../assets/icons/chevron-right (salin 1).svg";
+import ChevronLeftIcon from "../../../assets/icons/chevron-left.svg";
+import { useRef } from "react";
+
 
 export function ListCourseCategorie({
   categorie,
@@ -41,48 +45,73 @@ export function ListCourseProduct({
 }: {
   product: ListCourseProductType[];
 }) {
+
+  const scrollRef = useRef<HTMLElement | null>(null)
+
+  // efect scroll
+  function handleScrollX(direction: string) {
+    if(scrollRef.current) {
+      const scrollType = direction === "left" ? -300 : 300;
+
+      scrollRef.current.scrollBy({ left: scrollType, behavior: "smooth" })
+    }
+  }
+
   return (
-    <section
-    className={cn("flex relative")}
-    >
+    <section className={cn("flex items-center")}>
       <section
+         onClick={() => handleScrollX("left")}
         className={cn(
-          "absolute",
-          "w-[176px] h-full bg-(--white-color) hidden lg:block",
-          "blur-sm",
+          "bg-white shadow-lg z-10 rounded-full",
+          "p-[18px]",
+          "relative left-[120px]",
+          "hidden lg:block",
+          "cursor-pointer"
         )}
-      ></section>
-      <section className={cn(
-        // display
-        "flex gap-[15px] z-0",
-        "py-[10px] px-[25px] md:px-[45px] lg:px-[196px]",
-        "overflow-x-scroll",
-        "[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
-        "lg:overflow-x-auto",
-      )}>
-      {product.map((data, index) => {
-        return (
-          <CardProduct
-            key={index}
-            titleProduct={data.course}
-            imageCourse={data.imageCourse}
-            mentor={data.mentor}
-            profile={data.profile}
-            categorie={data.categorie}
-            price={data.price}
-            materi={data.materi}
-            id_course={data.id_course}
-          />
-        );
-      })}
+      >
+        <img src={ChevronLeftIcon} />
       </section>
       <section
+      ref={scrollRef}
         className={cn(
-          "absolute",
-          "w-[176px] h-full bg-(--white-color) hidden lg:block",
-          "blur-sm",
+          // display
+          "flex gap-[15px] z-0",
+          "overflow-x-scroll",
+           "py-[10px] px-[25px] md:px-[45px] lg:px-[196px] xl:px-[210px]",
+          "max-w-[1500px] ",
+          "[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]",
+          "lg:overflow-x-auto",
+          "lg:mask-x-from-80% lg:mask-x-to-90%",
         )}
-      ></section>
+      >
+        {product.map((data, index) => {
+          return (
+            <CardProduct
+              key={index}
+              titleProduct={data.course}
+              imageCourse={data.imageCourse}
+              mentor={data.mentor}
+              profile={data.profile}
+              categorie={data.categorie}
+              price={data.price}
+              materi={data.materi}
+              id_course={data.id_course}
+            />
+          );
+        })}
+      </section>
+      <section
+      onClick={() => handleScrollX("right")}
+        className={cn(
+          "bg-white shadow-lg rounded-full",
+          "p-[18px]",
+          "relative right-[120px]",
+          "cursor-pointer",
+          "hidden lg:block"
+        )}
+      >
+        <img src={ChevronRightIcon} />
+      </section>
     </section>
   );
 }

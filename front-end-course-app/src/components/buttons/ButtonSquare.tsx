@@ -5,7 +5,7 @@ function ButtonSquare({ name, eventButton }: { name: string,
     return (
         <button className={cn(
                         // style padding
-                        "px-[25px] py-[15px]",
+                        "px-[36px] py-[13px]",
         
                         // style cursor
                         "cursor-pointer",

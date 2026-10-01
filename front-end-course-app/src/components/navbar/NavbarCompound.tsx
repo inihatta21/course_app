@@ -15,6 +15,19 @@ export function NavbarListMenu() {
     )
 }
 
+export function NavbarListMenuSide() {
+    return (
+        <ul className={cn(
+            // display
+            "flex gap-[25px] items-center"
+        )}>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/course"}>Course</Link>
+            <Link to={"/"}>About</Link>
+        </ul>
+    )
+}
+
 export function NavbarButton() {
     return (
         <section className={cn(

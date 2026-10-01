@@ -35,9 +35,8 @@ function MateriCourse() {
     return (
         <section className={cn(
             // Di Mobile: Flex Column | Di Desktop: Flex Row (Menyejajarkan Sidebar & Content)
-            "flex flex-col lg:flex-row w-full min-h-full",
-            "lg:px-[300px] lg:max-h-screen",
-            "2xl:px-[370px]"
+            "flex flex-col lg:flex-row w-full min-h-full gap-[25px] lg:gap-[0px]",
+            "lg:max-h-screen",
         )}>
             <section className="lg:hidden">
                 {/* Sidebar Menu Component */}
@@ -49,22 +48,28 @@ function MateriCourse() {
             </section>
 
             {/* Toggle Button Khusus Mobile/Tablet */}
-            <section className="p-[25px] md:px-[50px] lg:hidden">
+            <section className={cn("px-[25px] md:px-[50px] lg:hidden",)}>
+                <section className={cn("p-[11px] w-[45px]", "shadow-md", "rounded-full")}>
                 <img
                     onClick={() => setIsOpenMenu(true)}
                     src={ListIcon}
-                    className="h-[24px] w-[24px] cursor-pointer"
+                    className={cn("h-[24px] w-[24px] cursor-pointer")}
                     alt="Open Menu"
                 />
+                </section>
             </section>
 
             {/* Main Content Area */}
             <main className={cn(
-                "flex-1 flex flex-col gap-[20px]",
-                "p-[25px] md:px-[50px] md:py-[30px]",
-                "lg:px-[60px] lg:py-[40px]"
+                "w-full",
+                "px-[25px] md:px-[45px]",
+                "lg:px-[90px]",
+                "lg:ms-[330px]",
+                "lg:mt-[40px]",
+                "flex flex-col gap-[25px]",
+                "lg:max-w-[1000px]"
             )}>
-                <Title title="Design Thinking Framework" />
+                <Title title="Prinsip Design UI" />
                 <MateriCourseVideo
                     video={video}
                     prev={`/course/${course_id}/${prev}`}

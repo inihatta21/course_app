@@ -25,3 +25,9 @@ export type ListCourseProductType = {
     price: number,
     materi: number
 }
+
+export type MateriCourseIdType = {
+    id_course: number,
+    id_materi: number,
+    materi: string
+}

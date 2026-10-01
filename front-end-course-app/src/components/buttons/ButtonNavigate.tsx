@@ -16,6 +16,8 @@ function ButtonNavigate({ name, type, navigate }: { name: string, type?: string,
                 // style cursor
                 "cursor-pointer",
 
+                "shadow-md",
+
                 // style color
                 "bg-(--white-color) text-(--primary-color)",
                 " hover:bg-(--primary-color) hover:text-(--white-color) hover:border hover:border-(--white-color)",

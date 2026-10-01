@@ -76,14 +76,14 @@ export function MateriCourseMenu({ data, isOpen, isClose }: {
 
             // Desktop (lg): Posisi normal (Static/Relative) di sebelah kiri konten, mengikuti tinggi konten
             "lg:static lg:translate-x-0 lg:z-auto",
-            "lg:w-[300px] lg:min-w-[300px] lg:p-[40px] lg:h-screen lg:min-h-full"
+            "lg:w-[300px] lg:min-w-[315px] lg:p-[40px] lg:h-screen lg:min-h-full"
         )}>
             {/* Mobile Close Button */}
             <section className="flex justify-end lg:hidden">
                 <img onClick={isClose} className="cursor-pointer" src={XIcon} alt="Close Menu" />
             </section>
 
-            <section className="flex flex-col gap-[25px] md:gap-[30px]">
+            <section className="flex flex-col gap-[25px] md:gap-[30px] lg:pt-[70px]">
                 <h1 className="font-bold text-(--white-color) text-[22px] md:text-[28px]">
                     Detail Materi
                 </h1>
@@ -107,17 +107,13 @@ export function MateriCourseVideo({ video, prev, next }: {
     video: string, prev: string, next: string
 }) {
     return (
-        <section className="flex flex-col gap-[20px]">
+        <section className={cn("flex flex-col gap-[25px]")}>
             <DetailCourseVideoPlayer video={video} />
-            <section className={cn(
-                // display
-                "flex flex-col-reverse gap-[25px]",
-                "md:flex-row md:justify-between md:items-center"
-            )}>
-                <ButtonSquare name="Tandai Selesai" />
-                <section className="flex gap-[10px]">
-                    <ButtonNavigate name="Prev" navigate={prev} />
-                    <ButtonNavigate name="Next" navigate={next} />
+            <section className={cn("flex", "justify-between", "lg:max-w-[440px]")}>
+                <ButtonNavigate name="Tandai Selesai" navigate={next} />
+                <section className={cn("flex gap-[15px]")}>
+                <ButtonNavigate type="light" name="Prev" navigate={prev} />
+                <ButtonNavigate type="light" name="Next" navigate={next} />
                 </section>
             </section>
         </section>

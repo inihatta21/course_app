@@ -1,32 +1,20 @@
-import { useParams } from "react-router-dom"
-import Title from "../components/title/Title"
-import { cn } from "../lib/util"
-import { UserCourseListCourse, type UserCourseListType } from "../components/contents/user_course/UserCourseCompound"
-import {  ProfileSideMenuMobile } from "../components/contents/dashboard/ProfileCompound";
 import { useState } from "react";
+import {
+  ProfileForm,
+  ProfileSideMenuMobile,
+  ProfileUserDesc,
+} from "../components/contents/dashboard/ProfileCompound";
 import IconList from "../assets/icons/list.png";
+import { cn } from "../lib/util";
+import Title from "../components/title/Title";
+import ProfileImage from "../assets/profile.jpg";
+import TitleMedium from "../components/title/TitleMedium";
 
-function UserCourse() {
-    const { id_user } = useParams()
+function Profile() {
+  const [open, setOpen] = useState(false);
 
-     const [open, setOpen] = useState(false);
-
-    const data: UserCourseListType[] = [{
-        title: "Desain UI/UX Pemula",
-        id_course: 1
-    },{
-        title: "Typescript Expert",
-        id_course: 2
-    },
-    {
-        title: "Bahasa Inggris Pemula",
-        id_course: 3
-    }
-]
-
-
-    return (
-        <section
+  return (
+    <section
       className={cn(
         "px-[25px] md:px-[45px] lg:px-[90px]",
         "flex flex-col gap-[25px]",
@@ -59,20 +47,35 @@ function UserCourse() {
       <main
         className={cn(
           "w-full",
+          "px-[25px] md:px-[45px]",
           "lg:ms-[330px]",
           "lg:mt-[40px]",
-          "flex flex-col gap-[25px] lg:gap-[45px]",
+          "flex flex-col gap-[25px]",
           "lg:max-w-[795px]",
         )}
       >
         {/* Title */}
-        <Title title="Course Saya" />
+        <Title title="Profile" />
 
-        {/* list Course */}
-        <UserCourseListCourse data={data} />
+        {/* image profile */}
+        <ProfileUserDesc
+          image={ProfileImage}
+          name="Alex Doe"
+          email="alexdow234@gmail.com"
+        />
+
+        {/* Edit Profile title */}
+        <section
+          className={cn("border-b-[0.5px] border-(--muted-color)", "pb-[10px]")}
+        >
+          <TitleMedium title="Edit Profile" />
+        </section>
+
+        {/* Form Edit Profile */}
+        <ProfileForm />
       </main>
     </section>
-    )
+  );
 }
 
-export default UserCourse
+export default Profile;

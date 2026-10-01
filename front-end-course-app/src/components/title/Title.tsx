@@ -6,8 +6,7 @@ function Title({ title }: { title: string }) {
             // style font
             "text-(--secondary-color) capitalize ",
             "text-[25px] font-bold",
-            "md:text-[30px]",
-            "lg:text-[48px] ",
+            "lg:text-[30px]"
         )}>{title}</h1>
     )
 }

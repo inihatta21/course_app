@@ -3,12 +3,13 @@ import { cn } from "../../lib/util";
 import NavbarWithAside from "../navbar/NavbarWithAside";
 import { data } from "../data/data";
 import Navbar from "../navbar/Navbar";
+import DashboardWithAside from "../navbar/DashboardWithAside";
 
-function DetailMateriLayout() {
+function DashboardLayout() {
   return (
     <section className="flex flex-col lg:flex-row">
       <section className={cn("hidden", "lg:block")}>
-        <NavbarWithAside isLogin isClose={() => {}} isOpen data={data} />
+        <DashboardWithAside isClose={() => {}} isLogin={true} isOpen />
       </section>
       <section
         className={cn(
@@ -33,4 +34,4 @@ function DetailMateriLayout() {
   );
 }
 
-export default DetailMateriLayout;
+export default DashboardLayout;
