@@ -8,6 +8,12 @@ export function timeExpired(menit) {
   return new Date(nowDate + menit * 60 * 1000);
 }
 
+export function timeExpiredDay(hari) {
+  const nowDate = new Date().getTime();
+
+  return new Date(nowDate + hari * 24 * 60 * 60 * 1000);
+}
+
 export async function sendMail(address, email) {
   const transport = nodemailer.createTransport({
     service: "gmail",

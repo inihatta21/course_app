@@ -1,7 +1,7 @@
+import { logger } from "./app/logger.js";
 import { web } from "./app/web.js";
 
 
 web.listen(3000, () => {
-    testDb()
-    console.log("run in port 3000")
+    logger.info("server running in port 3000")
 })
